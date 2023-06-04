@@ -3,7 +3,11 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['standard', 'plugin:prettier/recommended'],
+  extends: [
+    'standard',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended'
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -19,8 +23,27 @@ module.exports = {
         singleQuote: true,
         trailingComma: 'all',
         arrowParens: 'always',
-        semi: false,
+        semi: true,
       },
+    ],
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        'newlinesBetween': 'always',
+        'groups': [
+          'module',
+          '/^@shared/',
+          [
+            'parent',
+            'sibling',
+            'index'
+          ]
+        ],
+        'alphabetize': {
+          'order': 'asc',
+          'ignoreCase': true
+        }
+      }
     ],
   },
   settings: {
