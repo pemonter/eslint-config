@@ -51,36 +51,6 @@ module.exports = {
     'jsx-a11y/aria-unsupported-elements': 'warn',
     'jsx-a11y/role-has-required-aria-props': 'warn',
     'jsx-a11y/role-supports-aria-props': 'warn',
-    'camelcase': 'off',
-    'import/no-unresolved': 'error',
-    '@typescript-eslint/naming-convention': [
-      'error',
-      {
-        'selector': 'interface',
-        'format': [
-          'PascalCase'
-        ],
-        'custom': {
-          'regex': '[A-Z]',
-          'match': true
-        }
-      }
-    ],
-    'class-methods-use-this': 'off',
-    'import/prefer-default-export': 'off',
-    'no-shadow': 'off',
-    'no-console': 'off',
-    'no-useless-constructor': 'off',
-    'no-empty-function': 'off',
-    'lines-between-class-members': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        'ts': 'never',
-        'tsx': 'never'
-      }
-    ],
     'import-helpers/order-imports': [
       'warn',
       {
@@ -130,13 +100,6 @@ module.exports = {
     },
     'import/parsers': {
       [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
-    },
-    'import/resolver': {
-      'typescript': {},
-      'react': {
-        'extensions': ['.js', '.jsx', '.ts', '.tsx', 'd.ts'],
-        'moduleDirectory': ['src', 'node_modules']
-      }
-    },
+    }
   }
 }
