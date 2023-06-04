@@ -132,9 +132,10 @@ module.exports = {
       [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
     },
     'import/resolver': {
-      "typescript": {},
-      "react": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      'typescript': {},
+      'react': {
+        'extensions': ['.js', '.jsx', '.ts', '.tsx', 'd.ts'],
+        'moduleDirectory': ['src', 'node_modules']
       }
     },
   }
