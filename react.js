@@ -61,7 +61,7 @@ module.exports = {
           'PascalCase'
         ],
         'custom': {
-          'regex': '^I[A-Z]',
+          'regex': '[A-Z]',
           'match': true
         }
       }
@@ -130,6 +130,12 @@ module.exports = {
     },
     'import/parsers': {
       [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
+    },
+    'import/resolver': {
+      "typescript": {},
+      "react": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     },
   }
 }
