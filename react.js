@@ -78,7 +78,6 @@ module.exports = {
         ]
       }
     ],
-    'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
       1,
       {
