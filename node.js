@@ -53,7 +53,13 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': [
       'error'
-    ]
+    ],
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    "no-useless-constructor": 'off',
+    "@typescript-eslint/no-useless-constructor": 'off'
   },
   settings: {
     'import/parsers': {
