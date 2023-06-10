@@ -6,14 +6,19 @@ module.exports = {
   extends: [
     'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint'],
+  plugins: [
+    'eslint-plugin-import-helpers',
+    'prettier',
+    '@typescript-eslint',
+  ],
   rules: {
     'prettier/prettier': [
       'error',
@@ -45,6 +50,10 @@ module.exports = {
         }
       }
     ],
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': [
+      'error'
+    ]
   },
   settings: {
     'import/parsers': {
