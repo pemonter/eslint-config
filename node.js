@@ -36,6 +36,8 @@ module.exports = {
       {
         'newlinesBetween': 'always',
         'groups': [
+          '/@nest/',
+          '/@prisma/',
           'module',
           '/^@shared/',
           [

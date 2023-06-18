@@ -56,8 +56,11 @@ module.exports = {
       {
         'newlinesBetween': 'always',
         'groups': [
-          'module',
+          ['/^react/', '/^next/', '/@next/'],
+          '/components/',
+          '/module/',
           '/^@shared/',
+          '/absolute/',
           [
             'parent',
             'sibling',
