@@ -3,11 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true,
+    react: true,
   },
   extends: [
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
+    'next',
     'standard',
     'prettier',
     'plugin:prettier/recommended',
@@ -24,6 +26,7 @@ module.exports = {
     'react',
     'jsx-a11y',
     '@typescript-eslint',
+    'next',
     'eslint-plugin-import-helpers',
     'prettier'
   ],
