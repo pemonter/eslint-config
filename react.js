@@ -102,7 +102,9 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': [
       'error'
-    ]
+    ],
+    "@typescript-eslint/no-empty-interface": "off",
+    'no-empty-pattern': 'off'
   },
   settings: {
     react: {

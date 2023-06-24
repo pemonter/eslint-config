@@ -36,7 +36,7 @@ module.exports = {
       {
         'newlinesBetween': 'always',
         'groups': [
-          ['/^@apollo/', '/^@nest/', '/^@nestjs'],
+          ['/^@apollo/', '/^@nest/', '/^@nestjs/'],
           '/^@prisma/',
           'module',
           '/^@shared/',
