@@ -104,7 +104,9 @@ module.exports = {
       'error'
     ],
     "@typescript-eslint/no-empty-interface": "off",
-    'no-empty-pattern': 'off'
+    'no-empty-pattern': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     react: {
