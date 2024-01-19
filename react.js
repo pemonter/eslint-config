@@ -59,16 +59,36 @@ module.exports = {
         'groups': [
           ['/^react/', '/^next/', '/@next/'],
           '/module/',
-          ['/^@/pages/', '/@pages/', '/^pages/'],
+          [
+            '/^@/pages/', '/@pages/', '/^pages/',
+            '/^@/screens/', '/@screens/', '/^screens/'
+          ],
           ['/^@/templates/', '/@templates/', '/^templates/'],
           ['/^@/components/', '/@components/', '/^components/'],
           ['/^@/contexts/', '/@contexts/', '/^contexts/'],
           ['/^@/hooks/', '/@hooks/', '/^hooks/'],
+          ['/^@/modules/', '/@modules/', '/^modules/'],
+          ['/^@/routes/', '/@routes/', '/^routes/'],
           ['/^@/services/', '/@services/', '/^services/'],
-          ['/^@/functions/', '/@functions/', '/^functions/'],
-          ['/^@/utils/', '/@utils/', '/^utils/'],
-          ['/^@/styles/', '/@styles/', '/^styles/'],
-          ['/^@/shared/', '/@shared/', '/^shared/'],
+          ['/^@/storage/', '/@storage/', '/^storage/'],
+          ['/^@/stores/', '/@stores/', '/^stores/'],
+          [
+            '/^@/constants/', '/@constants/', '/^constants/',
+            '/^@/functions/', '/@functions/', '/^functions/',
+            '/^@/libs/', '/@libs/', '/^libs/',
+            '/^@/utils/', '/@utils/', '/^utils/',
+            '/^@/shared/', '/@shared/', '/^shared/'
+          ],
+          [
+            '/^@/dtos/', '/@dtos/', '/^dtos/',
+            '/^@/models/', '/@models/', '/^models/',
+            '/^@/types/', '/@types/', '/^types/',
+          ],
+          [
+            '/^@/assets/', '/@assets/', '/^assets/',
+            '/^@/styles/', '/@styles/', '/^styles/',
+            '/^@/theme/', '/@theme/', '/^theme/',
+          ],
           '/absolute/',
           [
             'parent',
@@ -82,14 +102,7 @@ module.exports = {
         }
       }
     ],
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        'devDependencies': [
-          '**/*.spec.js'
-        ]
-      }
-    ],
+    'import/no-extraneous-dependencies': 'off',
     'react/jsx-filename-extension': [
       1,
       {
@@ -104,6 +117,7 @@ module.exports = {
       'error'
     ],
     "@typescript-eslint/no-empty-interface": "off",
+    '@typescript-eslint/no-var-requires': 'off',
     'no-empty-pattern': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'off',
