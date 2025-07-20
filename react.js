@@ -58,6 +58,7 @@ module.exports = {
         'newlinesBetween': 'always',
         'groups': [
           ['/^react/', '/@react/', '/^next/', '/@next/'],
+          ['/^expo/', '/@expo/'],
           '/module/',
           [
             '/^@/pages/', '/@pages/', '/^pages/',
