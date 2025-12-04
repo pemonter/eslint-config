@@ -75,6 +75,9 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
+      pragma: 'React',
+      jsxPragma: null,
+      runtime: 'automatic',
     },
     'import/parsers': {
       [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
