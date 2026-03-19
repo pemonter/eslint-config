@@ -1,5 +1,5 @@
 const tseslint = require('typescript-eslint');
-const importHelpersPlugin = require('eslint-plugin-import-helpers');
+const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const prettierRecommended = require('eslint-plugin-prettier/recommended');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const globals = require('globals');
@@ -23,7 +23,7 @@ module.exports = [
       },
     },
     plugins: {
-      'import-helpers': importHelpersPlugin,
+      'simple-import-sort': simpleImportSort,
     },
     settings: {
       'import/parsers': {
@@ -42,23 +42,24 @@ module.exports = [
           semi: true,
         },
       ],
-      'import-helpers/order-imports': [
+      'simple-import-sort/imports': [
         'warn',
         {
-          newlinesBetween: 'always',
           groups: [
-            ['/^@apollo/', '/^@nest/', '/^@nestjs/'],
-            '/^@prisma/',
-            'module',
-            '/^@shared/',
-            ['parent', 'sibling', 'index'],
+            // apollo / nest / nestjs
+            ['^@apollo/', '^@nest($|/)', '^@nestjs/'],
+            // prisma
+            ['^@prisma/'],
+            // external npm packages
+            ['^[^.@]', '^@[^/]'],
+            // @shared
+            ['^@shared/'],
+            // relative
+            ['^\\.'],
           ],
-          alphabetize: {
-            order: 'asc',
-            ignoreCase: true,
-          },
         },
       ],
+      'simple-import-sort/exports': 'warn',
       'no-use-before-define': 'off',
       '@typescript-eslint/no-use-before-define': ['error'],
       '@typescript-eslint/explicit-function-return-type': 'off',

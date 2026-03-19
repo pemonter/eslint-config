@@ -2,7 +2,7 @@ const js = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const reactPlugin = require('eslint-plugin-react');
 const reactHooksPlugin = require('eslint-plugin-react-hooks');
-const importHelpersPlugin = require('eslint-plugin-import-helpers');
+const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const prettierRecommended = require('eslint-plugin-prettier/recommended');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const globals = require('globals');
@@ -28,7 +28,7 @@ module.exports = [
     },
     plugins: {
       'react-hooks': reactHooksPlugin,
-      'import-helpers': importHelpersPlugin,
+      'simple-import-sort': simpleImportSort,
     },
     settings: {
       react: {
@@ -54,32 +54,42 @@ module.exports = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'off',
       'react/react-in-jsx-scope': 'off',
-      'import-helpers/order-imports': [
+      'simple-import-sort/imports': [
         'warn',
         {
-          newlinesBetween: 'always',
           groups: [
-            ['/^react/', '/^next/', '/@next/'],
-            '/module/',
-            ['/^@/pages/', '/@pages/', '/^pages/'],
-            ['/^@/templates/', '/@templates/', '/^templates/'],
-            ['/^@/components/', '/@components/', '/^components/'],
-            ['/^@/contexts/', '/@contexts/', '/^contexts/'],
-            ['/^@/hooks/', '/@hooks/', '/^hooks/'],
-            ['/^@/services/', '/@services/', '/^services/'],
-            ['/^@/functions/', '/@functions/', '/^functions/'],
-            ['/^@/utils/', '/@utils/', '/^utils/'],
-            ['/^@/styles/', '/@styles/', '/^styles/'],
-            ['/^@/shared/', '/@shared/', '/^shared/'],
-            '/absolute/',
-            ['parent', 'sibling', 'index'],
+            // react / next
+            ['^react($|/)', '^@react', '^next($|/)', '^@next/'],
+            // external npm packages
+            ['^[^.@]', '^@[^/]'],
+            // pages
+            ['^@/pages', '^pages/'],
+            // templates
+            ['^@/templates', '^templates/'],
+            // components
+            ['^@/components', '^components/'],
+            // contexts
+            ['^@/contexts', '^contexts/'],
+            // hooks
+            ['^@/hooks', '^hooks/'],
+            // services
+            ['^@/services', '^services/'],
+            // functions
+            ['^@/functions', '^functions/'],
+            // utils
+            ['^@/utils', '^utils/'],
+            // styles
+            ['^@/styles', '^styles/'],
+            // shared
+            ['^@/shared', '^shared/'],
+            // other absolute / alias paths
+            ['^@/'],
+            // relative
+            ['^\\.'],
           ],
-          alphabetize: {
-            order: 'asc',
-            ignoreCase: true,
-          },
         },
       ],
+      'simple-import-sort/exports': 'warn',
       'no-use-before-define': 'off',
       '@typescript-eslint/no-use-before-define': ['error'],
     },

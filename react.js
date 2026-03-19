@@ -3,7 +3,7 @@ const reactHooksPlugin = require('eslint-plugin-react-hooks');
 const tseslint = require('typescript-eslint');
 const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
 const importPlugin = require('eslint-plugin-import');
-const importHelpersPlugin = require('eslint-plugin-import-helpers');
+const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const prettierRecommended = require('eslint-plugin-prettier/recommended');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const globals = require('globals');
@@ -35,7 +35,7 @@ module.exports = [
     plugins: {
       'jsx-a11y': jsxA11yPlugin,
       import: importPlugin,
-      'import-helpers': importHelpersPlugin,
+      'simple-import-sort': simpleImportSort,
     },
     settings: {
       react: {
@@ -72,54 +72,57 @@ module.exports = [
       'jsx-a11y/aria-unsupported-elements': 'warn',
       'jsx-a11y/role-has-required-aria-props': 'warn',
       'jsx-a11y/role-supports-aria-props': 'warn',
-      'import-helpers/order-imports': [
+      'simple-import-sort/imports': [
         'warn',
         {
-          newlinesBetween: 'always',
           groups: [
-            ['/^react/', '/@react/', '/^next/', '/@next/'],
-            ['/^expo/', '/@expo/'],
-            '/module/',
+            // react / next
+            ['^react($|/)', '^@react', '^next($|/)', '^@next/'],
+            // expo
+            ['^expo($|/)', '^@expo/'],
+            // external npm packages (not internal @/ aliases)
+            ['^[^.@]', '^@[^/]'],
+            // pages / screens
+            ['^@/pages', '^pages/', '^@/screens', '^screens/'],
+            // templates
+            ['^@/templates', '^templates/'],
+            // components
+            ['^@/components', '^components/'],
+            // contexts
+            ['^@/contexts', '^contexts/'],
+            // hooks
+            ['^@/hooks', '^hooks/'],
+            // modules
+            ['^@/modules', '^modules/'],
+            // routes
+            ['^@/routes', '^routes/'],
+            // services
+            ['^@/services', '^services/'],
+            // storage
+            ['^@/storage', '^storage/'],
+            // stores
+            ['^@/stores', '^stores/'],
+            // constants / functions / lib / libs / utils / shared
             [
-              '/^@/pages/', '/@pages/', '/^pages/',
-              '/^@/screens/', '/@screens/', '/^screens/',
+              '^@/constants', '^constants/',
+              '^@/functions', '^functions/',
+              '^@/lib', '^lib/',
+              '^@/libs', '^libs/',
+              '^@/utils', '^utils/',
+              '^@/shared', '^shared/',
             ],
-            ['/^@/templates/', '/@templates/', '/^templates/'],
-            ['/^@/components/', '/@components/', '/^components/'],
-            ['/^@/contexts/', '/@contexts/', '/^contexts/'],
-            ['/^@/hooks/', '/@hooks/', '/^hooks/'],
-            ['/^@/modules/', '/@modules/', '/^modules/'],
-            ['/^@/routes/', '/@routes/', '/^routes/'],
-            ['/^@/services/', '/@services/', '/^services/'],
-            ['/^@/storage/', '/@storage/', '/^storage/'],
-            ['/^@/stores/', '/@stores/', '/^stores/'],
-            [
-              '/^@/constants/', '/@constants/', '/^constants/',
-              '/^@/functions/', '/@functions/', '/^functions/',
-              '/^@/lib/', '/@lib/', '/^lib/',
-              '/^@/libs/', '/@libs/', '/^libs/',
-              '/^@/utils/', '/@utils/', '/^utils/',
-              '/^@/shared/', '/@shared/', '/^shared/',
-            ],
-            [
-              '/^@/dtos/', '/@dtos/', '/^dtos/',
-              '/^@/models/', '/@models/', '/^models/',
-              '/^@/types/', '/@types/', '/^types/',
-            ],
-            [
-              '/^@/assets/', '/@assets/', '/^assets/',
-              '/^@/styles/', '/@styles/', '/^styles/',
-              '/^@/theme/', '/@theme/', '/^theme/',
-            ],
-            '/absolute/',
-            ['parent', 'sibling', 'index'],
+            // dtos / models / types
+            ['^@/dtos', '^dtos/', '^@/models', '^models/', '^@/types', '^types/'],
+            // assets / styles / theme
+            ['^@/assets', '^assets/', '^@/styles', '^styles/', '^@/theme', '^theme/'],
+            // other absolute / alias paths
+            ['^@/'],
+            // relative
+            ['^\\.'],
           ],
-          alphabetize: {
-            order: 'asc',
-            ignoreCase: true,
-          },
         },
       ],
+      'simple-import-sort/exports': 'warn',
       'import/no-extraneous-dependencies': 'off',
       'react/jsx-filename-extension': [
         1,
