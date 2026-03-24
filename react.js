@@ -10,7 +10,7 @@ const globals = require('globals');
 const neostandard = require('neostandard');
 
 module.exports = [
-  ...reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat.recommended,
   reactHooksPlugin.configs['recommended-latest'],
   ...tseslint.configs.recommended,
   ...neostandard({ noStyle: true }),

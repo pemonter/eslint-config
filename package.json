@@ -1,9 +1,9 @@
 {
   "name": "@pemonter/eslint-config",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "description": "ESLint configuration.",
-  "main": "index.js",
+  "main": "react.js",
   "license": "MIT",
   "repository": {
     "url": "git+https://github.com/pemonter/eslint-config.git"
