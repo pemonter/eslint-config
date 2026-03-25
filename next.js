@@ -91,7 +91,7 @@ module.exports = [
       ],
       'simple-import-sort/exports': 'warn',
       'no-use-before-define': 'off',
-      '@typescript-eslint/no-use-before-define': ['error'],
+      '@typescript-eslint/no-use-before-define': 'off',
     },
   },
 ];

@@ -131,7 +131,7 @@ module.exports = [
         },
       ],
       'no-use-before-define': 'off',
-      '@typescript-eslint/no-use-before-define': ['error'],
+      '@typescript-eslint/no-use-before-define': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       'no-empty-pattern': 'off',
