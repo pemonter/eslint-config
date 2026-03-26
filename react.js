@@ -19,6 +19,7 @@ module.exports = [
   {
     languageOptions: {
       globals: {
+        React: 'readonly',
         ...globals.browser,
         ...globals.es2021,
         ...globals.jest,
@@ -137,6 +138,7 @@ module.exports = [
       'no-empty-pattern': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'off',
+      'react/react-in-jsx-scope': 'off',
     },
   },
 ];
