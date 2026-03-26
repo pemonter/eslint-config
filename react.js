@@ -19,10 +19,10 @@ module.exports = [
   {
     languageOptions: {
       globals: {
-        React: 'readonly',
         ...globals.browser,
         ...globals.es2021,
         ...globals.jest,
+        React: 'readonly',
       },
       parser: tseslint.parser,
       parserOptions: {
