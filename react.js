@@ -77,8 +77,9 @@ module.exports = [
         'warn',
         {
           groups: [
-            ['^react($|/)', '^@react', '^next($|/)', '^@next/'],
-            ['^expo($|/)', '^@expo/'],
+            ['^react', '^@react', '^@/react'],
+            ['^next', '^@next/'],
+            ['^expo', '^@expo/'],
             ['^[^.@]', '^@[^/]'],
             ['^@/pages', '^pages/', '^@/screens', '^screens/'],
             ['^@/templates', '^templates/'],
@@ -102,6 +103,7 @@ module.exports = [
             ['^@/assets', '^assets/', '^@/styles', '^styles/', '^@/theme', '^theme/'],
             ['^@/'],
             ['^\\.'],
+            ['^\\u0000'],
           ],
         },
       ],
