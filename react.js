@@ -22,7 +22,6 @@ module.exports = [
         ...globals.browser,
         ...globals.es2021,
         ...globals.jest,
-        React: 'readonly',
       },
       parser: tseslint.parser,
       parserOptions: {
@@ -77,33 +76,19 @@ module.exports = [
         'warn',
         {
           groups: [
-            // react / next
             ['^react($|/)', '^@react', '^next($|/)', '^@next/'],
-            // expo
             ['^expo($|/)', '^@expo/'],
-            // external npm packages (not internal @/ aliases)
             ['^[^.@]', '^@[^/]'],
-            // pages / screens
             ['^@/pages', '^pages/', '^@/screens', '^screens/'],
-            // templates
             ['^@/templates', '^templates/'],
-            // components
             ['^@/components', '^components/'],
-            // contexts
             ['^@/contexts', '^contexts/'],
-            // hooks
             ['^@/hooks', '^hooks/'],
-            // modules
             ['^@/modules', '^modules/'],
-            // routes
             ['^@/routes', '^routes/'],
-            // services
             ['^@/services', '^services/'],
-            // storage
             ['^@/storage', '^storage/'],
-            // stores
             ['^@/stores', '^stores/'],
-            // constants / functions / lib / libs / utils / shared
             [
               '^@/constants', '^constants/',
               '^@/functions', '^functions/',
@@ -112,13 +97,9 @@ module.exports = [
               '^@/utils', '^utils/',
               '^@/shared', '^shared/',
             ],
-            // dtos / models / types
             ['^@/dtos', '^dtos/', '^@/models', '^models/', '^@/types', '^types/'],
-            // assets / styles / theme
             ['^@/assets', '^assets/', '^@/styles', '^styles/', '^@/theme', '^theme/'],
-            // other absolute / alias paths
             ['^@/'],
-            // relative
             ['^\\.'],
           ],
         },
@@ -138,7 +119,12 @@ module.exports = [
       'no-empty-pattern': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'off',
-      'react/react-in-jsx-scope': 'off',
+    },
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    rules: {
+      'no-undef': 'off',
     },
   },
 ];
