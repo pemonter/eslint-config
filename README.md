@@ -15,12 +15,12 @@
 npm i -D eslint @pemonter/eslint-config
 ```
 
-2. Create a `.eslintrc.json` file extending the config:
+2. Create a `eslint.config.js` file extending the config:
 ```
-{
-  "extends": "@pemonter/eslint-config/react"
-  // "extends": "@pemonter/eslint-config/node"
-}
-```
+import reactEslintConfig from '@pemonter/eslint-config/react.js';
 
-> You can also use a `.eslintrc.js` instead of JSON if you prefer.
+export default [
+  { ignores: ['dist/**', 'node_modules/**'] },
+  ...reactEslintConfig,
+]
+```
